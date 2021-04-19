@@ -1,0 +1,18 @@
+2. select nama_barang sum(jumlah_pembelian)
+	from membeli, barang
+	where membeli.kode_barang=barang.kode_barang
+	group by nama_barang
+	order by(jumlah_pembelian) desc
+	limit 3;
+
+3. select nama_pelanggan, sum(total_belanja)
+	from membeli, pelanggan
+	where membeli.id_pelanggan=pelanggan.id_pelanggan
+	group by nama_pelanggan
+	order by(total_belanja) desc
+	limit 3;
+
+4. select membeli.*, to_char(dt, 'hh24') hh24,floor(to_char(dt,'hh24')/2) grp
+	from membeli
+	where dt between to_date('19-apr-2021','dd-mon-yyyy')
+		and to_date('20-apr-2021','dd-mon-yyyy');
